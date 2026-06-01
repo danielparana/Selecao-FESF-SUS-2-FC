@@ -130,8 +130,8 @@ Exemplo de corpo da requisição:
 
 ```json
 {
-  "nome": "Daniel",
-  "cpf": "07173240522",
+  "nome": "Joãoo",
+  "cpf": "11122233344",
   "telefone": "71999999999",
   "data_nascimento": "2000-01-01"
 }
