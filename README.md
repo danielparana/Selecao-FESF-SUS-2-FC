@@ -40,16 +40,14 @@ Sistema para cadastro e consulta de pacientes desenvolvido com **FastAPI** (Back
 Seleção FESF-SUS – 2 F.C/
 │
 ├── backend/
-│   ├── main.py
-│   ├── database.py
-│   ├── models.py
-│   ├── schemas.py
-│   ├── requirements.txt
-│   └── Dockerfile
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
 │
 ├── frontend/
 │   ├── pages/
-│   │   └── index.js
+│   │   ├── index.html
+│   │   └── script.js
 │   ├── package.json
 │   └── Dockerfile
 │
