@@ -1,35 +1,33 @@
 # Seleção FESF-SUS – 2 F.C
 
-Sistema para cadastro e consulta de pacientes desenvolvido com **FastAPI** (Backend) e **Next.js** (Frontend), com ambiente totalmente conteinerizado utilizando **Docker** e **Docker Compose**.
+Sistema simples desenvolvido para demonstrar a integração entre um Backend em **Python (Flask)** e um Frontend em **HTML/JavaScript**, com ambiente totalmente conteinerizado utilizando **Docker** e **Docker Compose**.
 
 ## Tecnologias Utilizadas
 
 ### Backend
 
 * Python
-* FastAPI
-* SQLAlchemy
-* SQLite
-* Uvicorn
+* Flask
+* Flask-CORS
 
 ### Frontend
 
-* React
-* Next.js
+* HTML5
+* JavaScript
 
 ### Conteinerização
 
 * Docker
 * Docker Compose
+* Nginx
 
 ---
 
 ## Funcionalidades
 
-* Cadastro de pacientes
-* Listagem de pacientes
+* Disponibilização de API REST em Python
+* Consumo da API pelo Frontend
 * Integração entre Frontend e Backend
-* Persistência de dados utilizando SQLite
 * Inicialização automatizada de toda a aplicação via Docker
 
 ---
@@ -37,7 +35,7 @@ Sistema para cadastro e consulta de pacientes desenvolvido com **FastAPI** (Back
 ## Estrutura do Projeto
 
 ```text
-Seleção FESF-SUS – 2 F.C/
+Selecao-FESF-SUS-2-FC-main/
 │
 ├── backend/
 │   ├── app.py
@@ -45,10 +43,8 @@ Seleção FESF-SUS – 2 F.C/
 │   └── requirements.txt
 │
 ├── frontend/
-│   ├── pages/
-│   │   ├── index.html
-│   │   └── script.js
-│   ├── package.json
+│   ├── index.html
+│   ├── script.js
 │   └── Dockerfile
 │
 ├── docker-compose.yml
@@ -95,55 +91,47 @@ O Docker realizará automaticamente:
 ### Frontend
 
 ```text
-http://localhost:3000
+http://localhost:8080
 ```
 
 ### Backend
 
 ```text
-http://localhost:8000
-```
-
-### Documentação da API (Swagger)
-
-```text
-http://localhost:8000/docs
+http://localhost:5000
 ```
 
 ---
 
 ## Endpoints da API
 
-### Listar Pacientes
+### Verificação da API
 
 ```http
-GET /pacientes
+GET /
 ```
 
-### Cadastrar Paciente
-
-```http
-POST /pacientes
-```
-
-Exemplo de corpo da requisição:
+Resposta:
 
 ```json
 {
-  "nome": "Joãoo",
-  "cpf": "11122233344",
-  "telefone": "71999999999",
-  "data_nascimento": "2000-01-01"
+  "status": "ok",
+  "message": "API rodando com Docker"
 }
 ```
 
----
+### Mensagem Consumida pelo Frontend
 
-## Banco de Dados
+```http
+GET /api
+```
 
-O sistema utiliza SQLite para armazenamento das informações.
+Resposta:
 
-O arquivo do banco é criado automaticamente durante a execução da aplicação.
+```json
+{
+  "message": "API Python rodando com Docker!"
+}
+```
 
 ---
 
@@ -161,10 +149,31 @@ A configuração permite a inicialização completa e integrada do ambiente atra
 docker compose up --build
 ```
 
+Após a execução:
+
+* O Backend será disponibilizado na porta **5000**;
+* O Frontend será disponibilizado na porta **8080**;
+* O Frontend consumirá dados fornecidos pela API Python.
+
+---
+
+## Atendimento ao Barema
+
+O projeto foi desenvolvido para comprovar a conteinerização funcional de uma aplicação utilizando Docker, contendo:
+
+* Dockerfile do Backend;
+* Dockerfile do Frontend;
+* Arquivo docker-compose.yml;
+* Integração entre os serviços executados em contêineres.
+
 Atendendo aos requisitos do Item 02 do Barema da Seleção FESF-SUS – 2 F.C.
 
 ---
 
 ## Repositório
 
-O repositório foi configurado como público e contém todos os arquivos necessários para execução da aplicação em ambiente Docker.
+O repositório contém todos os arquivos necessários para execução da aplicação em ambiente Docker, permitindo a reprodução completa do projeto por meio do comando:
+
+```bash
+docker compose up --build
+```
