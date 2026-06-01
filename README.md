@@ -43,9 +43,10 @@ Selecao-FESF-SUS-2-FC-main/
 │   └── requirements.txt
 │
 ├── frontend/
-│   ├── index.html
-│   ├── script.js
-│   └── Dockerfile
+│   ├── Dockerfile
+│   └── pages/
+│       ├── index.html
+│       └── script.js
 │
 ├── docker-compose.yml
 └── README.md
